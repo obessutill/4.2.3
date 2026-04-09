@@ -1,6 +1,7 @@
 export interface Vacancy {
     id: string,
     name: string,
+    url?: string,
     salary: {
         from: number | null,
         to: number | null,
@@ -28,7 +29,13 @@ export interface Vacancy {
             original?: string,
         };
     } | null;
+
+    snippet?: {
+        requirement?: string | null,
+        responsibility?: string | null  
+    }
     alternate_url: string,
+    description?: string,
 }
 
 export interface VacanciesResponse {

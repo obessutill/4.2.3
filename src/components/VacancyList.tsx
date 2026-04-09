@@ -1,8 +1,6 @@
 import { Group, Pagination, Stack, Text } from "@mantine/core";
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { 
-    fetchVacancies,
     selectError,
     selectLoading,
     selectPage,
@@ -21,10 +19,6 @@ import {
     const error = useAppSelector(selectError);
     const page = useAppSelector(selectPage);
     const pages = useAppSelector(selectPages);
-
-    useEffect(() => {
-        dispatch(fetchVacancies())
-    }, [dispatch, page]);
 
     const handlePageChange = (nextPage: number) => {
         dispatch(setPage(nextPage));

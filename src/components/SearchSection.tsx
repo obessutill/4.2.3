@@ -3,7 +3,6 @@ import { IconSearch } from '@tabler/icons-react';
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import {
     applySearch,
-    fetchVacancies,
     selectSearchDraft,
     setSearchDraft,
 } from '../store/vacanciesSlice';
@@ -14,7 +13,6 @@ export const SearchSection = () => {
 
     const handleSearch = () => {
         dispatch(applySearch());
-        dispatch(fetchVacancies());
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {

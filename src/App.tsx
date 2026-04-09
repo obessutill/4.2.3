@@ -1,24 +1,18 @@
-import { Container, Flex } from '@mantine/core';
+import { VacanciesPage } from './pages/VacanciesPage'
+import { VacancyDetailsPage } from './pages/VacancyDetailsPage';
 import { Header } from './components/Header';
-import { SearchSection } from './components/SearchSection';
-import { FiltersPanel } from './components/FiltersPanel';
-import { VacancyList } from './components/VacancyList';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   return (
     <>
     <Header />
 
-    <div style={{ backgroundColor: '#F1F3F5', minHeight: '100vh' }}>
-      <SearchSection />
-
-      <Container size="lg" py={24}>
-        <Flex align="flex-start" gap={24}>
-          <FiltersPanel />
-          <VacancyList />
-        </Flex>
-      </Container>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigate to="/vacancies" replace />}/>
+      <Route path="/vacancies" element={<VacanciesPage />}/>
+      <Route path="/vacancies/:id" element={<VacancyDetailsPage />}/>
+    </Routes>
     </>
   )
 }

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import {
     addSkill,
-    fetchVacancies,
     removeSkill,
     selectArea,
     selectSkills,
@@ -25,18 +24,15 @@ export const FiltersPanel = () => {
         }
 
         dispatch(addSkill(trimmedSkill));
-        dispatch(fetchVacancies());
         setNewSkill('');
     };
 
     const handleRemoveSkill = (skill: string) => {
         dispatch(removeSkill(skill));
-        dispatch(fetchVacancies());
     };
 
     const handleAreaChange = (value: string | null) => {
         dispatch(setArea(value ?? ''));
-        dispatch(fetchVacancies());
     }
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
